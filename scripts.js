@@ -111,6 +111,7 @@ function checkRoundWinner(playerPick, computerPick) {
     }
 
     setGamePoints();
+    endGame();
 }
 
 function playerPick(playerPick) {
@@ -121,3 +122,18 @@ function playerPick(playerPick) {
     
     checkRoundWinner(playerPick, computerPick);
 }
+
+function endGame() {
+    var winnerPlayer = player.score === 10,
+        winnerComputer = computer.score === 10;
+        if (winnerPlayer) {
+            alert("Wygrywa "+player.name);
+            gameState = 'ended';
+        } 
+        else if (winnerComputer) {
+            alert("Wygrywa kompputer");
+            gameState = 'ended';
+        }
+    setGameElements();
+}
+
